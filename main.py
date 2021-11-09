@@ -14,6 +14,8 @@ from classes import *
 from load_obj import *
 from functions import *
 
+centerpoint = [0,0,0]
+
 
 # ---- PRE LOOP ----
 
@@ -186,22 +188,52 @@ while run:
         if event.type == pygame.QUIT: # if the event is exitting out of pygame
             run = False # exits out of the loop
 
+
+
         if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_1:
+                points = cube()[0]
+
             if event.key == pygame.K_LEFT:
-                move_x -= move_amount[1] * sensitivity
-                print(move_x);
+                points[0][0][0] -= 1;
+                points[1][0][0] -= 1;
+                points[2][0][0] -= 1;
+                points[3][0][0] -= 1;
+                points[4][0][0] -= 1;
+                points[5][0][0] -= 1;
+                points[6][0][0] -= 1;
+                points[7][0][0] -= 1;
 
             if event.key == pygame.K_RIGHT:
-                move_x += move_amount[1] * sensitivity
-                print(move_x);
+                points[0][0][0] += 1;
+                points[1][0][0] += 1;
+                points[2][0][0] += 1;
+                points[3][0][0] += 1;
+                points[4][0][0] += 1;
+                points[5][0][0] += 1;
+                points[6][0][0] += 1;
+                points[7][0][0] += 1;
 
             if event.key == pygame.K_DOWN:
-                move_y += move_amount[0] * sensitivity
-                print(move_y);
+                points[0][1][0] += 1;
+                points[1][1][0] += 1;
+                points[2][1][0] += 1;
+                points[3][1][0] += 1;
+                points[4][1][0] += 1;
+                points[5][1][0] += 1;
+                points[6][1][0] += 1;
+                points[7][1][0] += 1;
 
             if event.key == pygame.K_UP:
-                move_y -= move_amount[0] * sensitivity
-                print(move_y);
+                points[0][1][0] -= 1;
+                points[1][1][0] -= 1;
+                points[2][1][0] -= 1;
+                points[3][1][0] -= 1;
+                points[4][1][0] -= 1;
+                points[5][1][0] -= 1;
+                points[6][1][0] -= 1;
+                points[7][1][0] -= 1;
 
         if event.type == pygame.MOUSEMOTION:
             pos = event.pos
@@ -225,6 +257,7 @@ while run:
             if event.button == 4: # scroll up
                 if distance_from_object >= min_distance:
                     distance_from_object -= scroll_sensitivity # go towards object
+
             if event.button == 5: # scroll down
                 if distance_from_object <= max_distance:
                     distance_from_object += scroll_sensitivity # go away from the object
